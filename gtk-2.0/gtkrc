@@ -254,11 +254,13 @@ style "button_label" {
 	fg[ACTIVE]			= @selected_fg_color
 	#fg[SELECTED]		= "#ffffff"
 	#text[ACTIVE]		= "#ffffff"
+	text[PRELIGHT]		= @selected_fg_color
 	#text[SELECTED]		= "#ffffff"
 }
 
 style "checkradio_label" {	
 	fg[ACTIVE]		= @text_color		# Forzar color texto en radiobutton-eclipse
+	fg[PRELIGHT]		= @text_color
 }
 
 style "entry" { # text
