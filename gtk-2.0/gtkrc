@@ -157,7 +157,8 @@ style "default" {
 		gradient_shades		= {1.00, 1.00, 1.00, 1.00}
 		highlight_shade		= 1.0
 		lightborder_shade	= 1.0
-		lightborderstyle	= 0 # 0 = top side, 1 = all sides
+		lightborderstyle	= 1 # 0 = top side, 1 = all sides
+		listviewheaderstyle		= 0 # 0 = flat, 1 = glassy, 2 = raised
 		listviewstyle		= 0 # 0 = nothing, 1 = dotted, 2 = line
 		menubaritemstyle	= 0 # 0 = menuitem look, 1 = button look
 		menubarstyle		= 0 # 0 = flat, 1 = glassy, 2 = gradient, 3 = striped
@@ -215,6 +216,7 @@ style "iconview-thunar" {
 	#base[NORMAL]		= "#B1AA65"
 	base[NORMAL]		= @thunar_iconview_bg
 	base[SELECTED]		= @selected_bg_color
+
 }
 
 style "wide" {
@@ -243,7 +245,7 @@ style "button" {
 		focusstyle				= 2
 		lightborderstyle		= 1		
 		lightborder_shade       = 1.1
-        highlight_shade			= 1.00
+		highlight_shade			= 1.00
 		textstyle               = 2
 		text_shade				= 0.7
 	}
@@ -323,7 +325,7 @@ style "menubar" {
 
 	engine "murrine" {
 		gradient_shades     	= {1.00,1.00,1.00,1.00}		
-        border_shades 			= {1.1, 0.9}
+		border_shades 			= {1.1, 0.9}
 		contrast            	= 0.0
 		lightborderstyle		= 1
 		textstyle               = 2
@@ -366,6 +368,9 @@ style "menu" {
 		roundness		= 0 # 0 = squared
 		contrast		= 1.0
 	}
+}
+
+style "menuseparator" = "menu" {
 }
 
 style "menu_item_white" {
@@ -488,8 +493,8 @@ style "scrollbar" {
         glow_shade              = 1.0
         prelight_shade          = .75
         gradient_colors         = FALSE
-        lightborder_shade       = 0.0
-        lightborderstyle        = 1
+        lightborder_shade       = 1.0
+        lightborderstyle        = 0
         trough_shades           = {0.973, 0.973}
         border_shades           = {1.32, 1.32}
         contrast                = 0.00
@@ -719,7 +724,7 @@ widget_class "*<GtkMenuBar>*"			style "menubar"
 widget_class "*<GtkMenu>*"			    style "menu"
 widget_class "*<GtkMenuItem>*"			style "menu_item_white"
 widget_class "*<GtkMenuBar>.<GtkMenuItem>*"	style "menubar_item_white"
-#widget_class "*<GtkMenuBar>.<GtkMenuItem>*"	style "menu_item_black"
+widget_class "*<GtkSeparatorMenuItem>*"	        style "menuseparator"
 
 widget_class "*<GtkToolbar>"                    style "toolbar"
 widget_class "*<GtkHandleBox>"                  style "toolbar"
@@ -764,8 +769,8 @@ widget "MozillaGtkWidget*GtkCheck*"				style:highest "checkradio"
 widget "MozillaGtkWidget*GtkRadio*"				style:highest "checkradio"
 
 
-widget_class "*<GtkCheckButton>*<GtkLabel>"		style:highest "checkradio_label"
-widget_class "*<GtkRadioButton>*<GtkLabel>"		style:highest "checkradio_label"
+widget_class "*<GtkCheckButton>*<GtkLabel>"		style "checkradio_label"
+widget_class "*<GtkRadioButton>*<GtkLabel>"		style "checkradio_label"
 
 
 
@@ -851,6 +856,12 @@ widget "vim-main-window.*Scrollbar*"	style "vim-scrollbar"
 widget "*swt*toolbar*"			style "toolbar"
 
 
+# GtkVBox
+#style "vbox" {
+#}
+#widget_class "*<GtkVBox>.*" style "vbox"
+
+
 # Thunar Styles
 
 style "sidepane" {
@@ -863,3 +874,38 @@ style "sidepane" {
 widget_class "*ThunarShortcutsView*" style "sidepane"
 widget_class "*ThunarTreeView*" style "sidepane"
 widget_class "*ThunarIconView*" style "iconview-thunar"
+
+# PcManFM Styles
+
+style "pcman-toolbar" = "toolbar" {
+	xthickness = 4
+	ythickness = 4
+}
+
+style "pcmanbar-button" {
+	ythickness = 3
+	xthickness = 5
+	fg[NORMAL] = mix (0.99, @fg_color, @bg_color)
+	fg[ACTIVE] = @selected_fg_color
+	fg[PRELIGHT] = @selected_fg_color
+
+	bg[NORMAL]                      = shade (0.91, @bg_color)
+	bg[PRELIGHT]                      = shade (1.00, @selected_bg_color)
+	bg[ACTIVE]                      = shade (1.00, @selected_bg_color)
+
+	engine "murrine" {
+		contrast                = 0.0
+		gradient_shades         = {1.00,1.00,1.00,1.00}
+		focusstyle				= 2
+		lightborderstyle		= 1
+		lightborder_shade       = 1.1
+		highlight_shade			= 1.00
+		textstyle               = 0
+		text_shade				= 0.7
+	}
+}
+
+widget_class "*FmMainWin.*.FmPlacesView" style "sidepane"
+widget_class "*FmMainWin.*.ExoIconView" style "iconview-thunar"
+widget_class "*FmMainWin*GtkToolbar" style "pcman-toolbar"
+widget_class "*<FmMainWin>*<GtkRadioButton>*" style "pcmanbar-button"
