@@ -162,14 +162,14 @@ GtkScale.scale-has-marks-below.slider.horizontal,
 GtkScale.scale-has-marks-below.slider.horizontal:hover,
 GtkScale.scale-has-marks-above.slider.horizontal,
 GtkScale.scale-has-marks-above.slider.horizontal:hover {
-    /*background-image: url("assets/scale-slider-hor.svg");
+    /*background-image: url("assets/scale-slider-hor.svg")*/;
 }
 
 GtkScale.slider:insensitive,
 GtkScale.slider.horizontal:insensitive,
 GtkScale.scale-has-marks-below.slider.horizontal:insensitive,
 GtkScale.scale-has-marks-above.slider.horizontal:insensitive {
-    /*background-image: url("assets/scale-slider-insensitive-hor.svg");
+    /*background-image: url("assets/scale-slider-insensitive-hor.svg")*/;
 }
 
 GtkScale.slider.vertical,
@@ -178,13 +178,13 @@ GtkScale.scale-has-marks-below.slider.vertical,
 GtkScale.scale-has-marks-below.slider.vertical:hover,
 GtkScale.scale-has-marks-above.slider.vertical,
 GtkScale.scale-has-marks-above.slider.vertical:hover {
-    /*background-image: url("assets/scale-slider-ver.svg");
+    /*background-image: url("assets/scale-slider-ver.svg")*/;
 }
 
 GtkScale.slider.vertical:insensitive,
 GtkScale.scale-has-marks-below.slider.vertical:insensitive,
 GtkScale.scale-has-marks-above.slider.vertical:insensitive {
-    /*background-image: url("assets/scale-slider-insensitive-ver.svg");
+    /*background-image: url("assets/scale-slider-insensitive-ver.svg");*/
 }
 
 /* nth-child for linked areas */

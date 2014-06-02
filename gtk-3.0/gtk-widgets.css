@@ -3580,3 +3580,15 @@ FMMainWindow ExoIconView.entry {
 EvWindow.background {
 	background-color: @evince_bg;
 }
+
+/* Prevent gtk 3.12 from drawing its own shadows and window decorations */
+.window-frame, .window-frame:backdrop {
+  box-shadow: 0 0 0 black;
+  border-style: none;
+  margin: 0;
+  border-radius: 0;
+}
+
+.titlebar {
+  border-radius: 0;
+}
